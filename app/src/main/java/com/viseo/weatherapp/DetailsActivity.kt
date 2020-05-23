@@ -12,7 +12,9 @@ import com.viseo.weatherapp.module.WeatherModel
 import kotlinx.android.synthetic.main.details_activity.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DetailsActivity :AppCompatActivity() {
+/*
+* Display selected city details */
+class DetailsActivity :BaseActivity() {
 
     companion object {
          const val CITY_KEY = "CITY"

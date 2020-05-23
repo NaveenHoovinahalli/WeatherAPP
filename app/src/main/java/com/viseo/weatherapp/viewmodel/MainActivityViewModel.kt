@@ -1,5 +1,6 @@
 package com.example.mydemosample
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.basicdemo.module.CitiesWeatherModel

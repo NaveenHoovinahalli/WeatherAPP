@@ -15,7 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 /*
 * Get the information from the api and display in the list of city
 *  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     lateinit var adapter: CityListAdapter
 
     val myViewModel: MainActivityViewModel by viewModel()
@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
 
         recyclerview.setLayoutManager(LinearLayoutManager(this))
 
+        if (isNetworkAvailable()){
         myViewModel.fetchData()
+    }
 
         country_search.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener,
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 newText?.let {
+//                    It will search after 3 character and when you delete search it will reset back
                     if (newText.length > 2)
                         adapter.filter.filter(newText)
                     else {
